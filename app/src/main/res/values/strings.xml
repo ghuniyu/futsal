@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LetsKicks</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="google_web_client_id" translatable="false">259752438058-52meb4l9to1n8dunplhtg46t583hpe6k.apps.googleusercontent.com</string>
+    <string name="call">CALL</string>
+    <string name="booking">BOOKING</string>
+    <string name="harga">Harga</string>
+</resources>

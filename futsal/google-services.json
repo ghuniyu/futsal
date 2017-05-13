@@ -1,0 +1,231 @@
+{
+  "project_info": {
+    "project_number": "259752438058",
+    "firebase_url": "https://ghostown-92ab9.firebaseio.com",
+    "project_id": "ghostown-92ab9",
+    "storage_bucket": "ghostown-92ab9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259752438058:android:73be4c819ebcc67d",
+        "android_client_info": {
+          "package_name": "id.ghostown.laundryuk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259752438058-jh85mp5lgt48ethppa8hlg5lh38ori3i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.ghostown.laundryuk",
+            "certificate_hash": "77cf47e07e0552d4d8fef14e8351bfa1dde24c80"
+          }
+        },
+        {
+          "client_id": "259752438058-52meb4l9to1n8dunplhtg46t583hpe6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUTPb9VYs4lqi_3Pg5SXWtwm1-4GAMe_E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "259752438058-52meb4l9to1n8dunplhtg46t583hpe6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259752438058:android:6b3ca976a802880c",
+        "android_client_info": {
+          "package_name": "id.ghostown.pegawai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259752438058-671k0gg0csis4sqip864sgt5ab5ubfg7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.ghostown.pegawai",
+            "certificate_hash": "77cf47e07e0552d4d8fef14e8351bfa1dde24c80"
+          }
+        },
+        {
+          "client_id": "259752438058-52meb4l9to1n8dunplhtg46t583hpe6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUTPb9VYs4lqi_3Pg5SXWtwm1-4GAMe_E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "259752438058-52meb4l9to1n8dunplhtg46t583hpe6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259752438058:android:3e30e67053a8627d",
+        "android_client_info": {
+          "package_name": "id.ghostown.orderush"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259752438058-jpselk7c093p1q18rjgu2kfiuraj1i74.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.ghostown.orderush",
+            "certificate_hash": "77cf47e07e0552d4d8fef14e8351bfa1dde24c80"
+          }
+        },
+        {
+          "client_id": "259752438058-52meb4l9to1n8dunplhtg46t583hpe6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUTPb9VYs4lqi_3Pg5SXWtwm1-4GAMe_E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "259752438058-52meb4l9to1n8dunplhtg46t583hpe6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259752438058:android:5c2cb4a4b07760ff",
+        "android_client_info": {
+          "package_name": "id.ghostown.letskicks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259752438058-hekhlqcknbotn194c1nah8edv7ghp5rv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.ghostown.letskicks",
+            "certificate_hash": "77cf47e07e0552d4d8fef14e8351bfa1dde24c80"
+          }
+        },
+        {
+          "client_id": "259752438058-52meb4l9to1n8dunplhtg46t583hpe6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUTPb9VYs4lqi_3Pg5SXWtwm1-4GAMe_E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "259752438058-52meb4l9to1n8dunplhtg46t583hpe6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259752438058:android:d166fffc7d814e8c",
+        "android_client_info": {
+          "package_name": "id.ghostown.futsal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259752438058-v17b3cms7ta4eslig1rn04qpnc2d5qs4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.ghostown.futsal",
+            "certificate_hash": "77cf47e07e0552d4d8fef14e8351bfa1dde24c80"
+          }
+        },
+        {
+          "client_id": "259752438058-52meb4l9to1n8dunplhtg46t583hpe6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUTPb9VYs4lqi_3Pg5SXWtwm1-4GAMe_E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "259752438058-52meb4l9to1n8dunplhtg46t583hpe6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
