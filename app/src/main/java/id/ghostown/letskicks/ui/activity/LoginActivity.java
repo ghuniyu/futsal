@@ -1,4 +1,4 @@
-package id.ghostown.letskicks.activity.ui;
+package id.ghostown.letskicks.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +19,6 @@ import com.orhanobut.hawk.Hawk;
 
 import butterknife.OnClick;
 import id.ghostown.letskicks.Constants;
-import id.ghostown.letskicks.MapsActivity;
 import id.ghostown.letskicks.R;
 
 public final class LoginActivity extends BaseActivity implements FirebaseAuth.AuthStateListener, GoogleApiClient.OnConnectionFailedListener {

@@ -19,7 +19,6 @@ import com.orhanobut.hawk.Hawk;
 
 import butterknife.OnClick;
 import id.ghostown.futsal.Constants;
-import id.ghostown.futsal.MainActivity;
 import id.ghostown.futsal.R;
 
 public final class LoginActivity extends BaseActivity implements FirebaseAuth.AuthStateListener, GoogleApiClient.OnConnectionFailedListener {

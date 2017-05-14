@@ -30,31 +30,29 @@
             android:layout_weight="1"
             android:layout_height="wrap_content">
             <EditText
-                android:enabled="false"
                 android:id="@+id/price"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/harga"
-                android:text="Rp 160.000"
-                android:textColor="#424242"/>
+                android:hint="Harga"
+                android:text="Rp 160.000"/>
         </android.support.design.widget.TextInputLayout>
         <Button
-            android:id="@+id/book"
+            android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Booking"/>
+            android:text="Delete"/>
     </LinearLayout>
     <TextView
-        android:id="@+id/available"
         android:visibility="gone"
+        android:id="@+id/available"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#0f0"
         android:padding="5dp"
         android:text="Available" />
     <TextView
-        android:id="@+id/unavailable"
         android:visibility="gone"
+        android:id="@+id/unavailable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#f00"

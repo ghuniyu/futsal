@@ -10,11 +10,13 @@ import com.google.firebase.database.IgnoreExtraProperties;
 public class Lapangan {
     public String price;
     public boolean status;
+    public String name;
 
     public Lapangan() {
     }
 
-    public Lapangan(String price) {
+    public Lapangan(String name, String price) {
+        this.name = name;
         this.price = price;
         status = true;
     }

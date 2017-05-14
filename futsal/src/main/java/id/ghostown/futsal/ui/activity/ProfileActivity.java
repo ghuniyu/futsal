@@ -63,6 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         if (Hawk.contains(Constants.SESSION)) {
             Futsal futsal = Hawk.get(Constants.SESSION);
+            nama.setText(futsal.name);
             latlng.setText(futsal.coordinate);
             phone.setText(futsal.phone);
         }
@@ -112,12 +113,14 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (!dataSnapshot.hasChild(USER)){
                     mFirebaseDatabase.child(USER).setValue(new Futsal(
+                            nama.getText().toString(),
                             phone.getText().toString(),
                             latlng.getText().toString())
                     );
                     valueListener();
                 }else {
                     mFirebaseDatabase.child(USER).setValue(new Futsal(
+                            nama.getText().toString(),
                             phone.getText().toString(),
                             latlng.getText().toString())
                     );

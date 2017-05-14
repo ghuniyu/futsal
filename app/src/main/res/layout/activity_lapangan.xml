@@ -10,6 +10,7 @@
         android:layout_weight="1">
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -21,19 +22,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
+            android:id="@+id/call"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/colorPrimary"
             android:text="@string/call"
-            android:textColor="#fff" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/colorAccent"
-            android:text="@string/booking"
             android:textColor="#fff" />
     </LinearLayout>
 

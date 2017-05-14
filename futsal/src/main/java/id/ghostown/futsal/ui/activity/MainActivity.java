@@ -1,4 +1,4 @@
-package id.ghostown.futsal;
+package id.ghostown.futsal.ui.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -8,10 +8,14 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,11 +24,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.orhanobut.hawk.Hawk;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import id.ghostown.futsal.Constants;
+import id.ghostown.futsal.R;
+import id.ghostown.futsal.model.Futsal;
 import id.ghostown.futsal.model.Lapangan;
-import id.ghostown.futsal.ui.activity.ProfileActivity;
+import id.ghostown.futsal.ui.adapter.LapanganAdapter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,18 +43,38 @@ public class MainActivity extends AppCompatActivity
     EditText lapangan;
     @BindView(R.id.price)
     EditText price;
+    @BindView(R.id.tambah)
+    Button tambah;
+    @BindView(R.id.recycler)
+    RecyclerView recycler;
 
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
     ProgressDialog progressDialog;
 
-    String USER;
+    Futsal futsal;
+    List<Lapangan> lapanganList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Loading...");
+        progressDialog.setMessage("Menghubungkan ke Server");
+        progressDialog.show();
+
         ButterKnife.bind(this);
-        USER = Hawk.get(Constants.USERS);
+        futsal = Hawk.get(Constants.SESSION);
+        if (futsal == null) {
+            lapangan.setEnabled(false);
+            price.setEnabled(false);
+            tambah.setEnabled(false);
+            Toast.makeText(MainActivity.this, "Anda belum Harus Mengisi Profile", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, ProfileActivity.class));
+        }
+
+        lapanganList = new ArrayList<>();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -57,6 +87,10 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mFirebaseInstance = FirebaseDatabase.getInstance();
+        mFirebaseDatabase = mFirebaseInstance.getReference(Constants.APPS);
+        valueListener();
     }
 
     @Override
@@ -69,13 +103,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -83,10 +110,8 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_lapangan) {
-            // Handle the camera action
-        } else if (id == R.id.nav_logout) {
-
+        if (id == R.id.nav_logout) {
+            Hawk.deleteAll();
         } else if (id == R.id.nav_profile) {
             startActivity(new Intent(this, ProfileActivity.class));
         } else if (id == R.id.nav_share) {
@@ -99,21 +124,17 @@ public class MainActivity extends AppCompatActivity
     }
 
     @OnClick(R.id.tambah)
-    void tambah(){
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Loading...");
-        progressDialog.setMessage("Menghubungkan ke Server");
+    void tambah() {
         progressDialog.show();
 
-        mFirebaseInstance = FirebaseDatabase.getInstance();
-        mFirebaseDatabase = mFirebaseInstance.getReference(Constants.APPS);
         mFirebaseDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                    mFirebaseDatabase.child(USER).child(lapangan.getText().toString()).setValue(new Lapangan(
-                            price.getText().toString()
-                    ));
-                    valueListener();
+                mFirebaseDatabase.child(futsal.name).child(Constants.LAPANGAN + lapangan.getText().toString()).setValue(new Lapangan(
+                        lapangan.getText().toString(),
+                        price.getText().toString()
+                ));
+                valueListener();
             }
 
             @Override
@@ -123,21 +144,28 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-    void valueListener(){
-        mFirebaseDatabase.child(USER).addValueEventListener(new ValueEventListener() {
+    void valueListener() {
+        mFirebaseDatabase.child(futsal.name).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //Hashmap belum
-                Lapangan lapangan = dataSnapshot.getValue(Lapangan.class);
-                Hawk.put(Constants.LAPANGAN, lapangan);
+                lapanganList.clear();
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    if (child.getKey().contains(Constants.LAPANGAN)) {
+                        Log.e("X", child.getKey());
+                        lapanganList.add(child.getValue(Lapangan.class));
+                    }
+                }
+                recycler.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                recycler.setAdapter(new LapanganAdapter(R.layout.item_lapangan, lapanganList));
+
+                progressDialog.dismiss();
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                progressDialog.dismiss();
             }
         });
-        progressDialog.dismiss();
     }
 
 }
