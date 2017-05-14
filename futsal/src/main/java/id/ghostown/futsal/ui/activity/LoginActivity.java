@@ -1,4 +1,4 @@
-package id.ghostown.letskicks.activity.ui;
+package id.ghostown.futsal.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,9 +18,9 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.orhanobut.hawk.Hawk;
 
 import butterknife.OnClick;
-import id.ghostown.letskicks.Constants;
-import id.ghostown.letskicks.MapsActivity;
-import id.ghostown.letskicks.R;
+import id.ghostown.futsal.Constants;
+import id.ghostown.futsal.MainActivity;
+import id.ghostown.futsal.R;
 
 public final class LoginActivity extends BaseActivity implements FirebaseAuth.AuthStateListener, GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = LoginActivity.class.getSimpleName();
@@ -32,7 +32,7 @@ public final class LoginActivity extends BaseActivity implements FirebaseAuth.Au
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
         if (currentUser != null) {
-            Intent intent = new Intent(this, MapsActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             Hawk.put(Constants.USERS, currentUser.getDisplayName().replace("\\s++", ""));
 

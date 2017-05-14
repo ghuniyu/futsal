@@ -1,4 +1,4 @@
-package id.ghostown.letskicks.activity.ui;
+package id.ghostown.futsal.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

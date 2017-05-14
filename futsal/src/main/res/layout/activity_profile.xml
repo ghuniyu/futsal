@@ -31,6 +31,7 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/nama"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/nama"
@@ -42,6 +43,7 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/kontak"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/kontak"
@@ -49,6 +51,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
+        android:id="@+id/save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorAccent"

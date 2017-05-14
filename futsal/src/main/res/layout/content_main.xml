@@ -18,24 +18,25 @@
             android:layout_height="wrap_content">
 
             <EditText
+                android:id="@+id/lapangan"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Nama Lapangan"
-                android:inputType="text"
-                android:enabled="false"/>
+                android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
+                android:id="@+id/price"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Harga"
-                android:inputType="numberSigned"
-                android:enabled="false"/>
+                android:inputType="numberSigned" />
         </android.support.design.widget.TextInputLayout>
         <Button
+            android:id="@+id/tambah"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tambah Lapangan"/>
