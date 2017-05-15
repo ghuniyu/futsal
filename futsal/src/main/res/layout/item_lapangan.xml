@@ -36,6 +36,21 @@
                 android:hint="Harga"
                 android:text="Rp 160.000"/>
         </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <EditText
+                android:enabled="false"
+                android:id="@+id/pick"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Jam Booking"
+                android:text="00:00"
+                android:inputType="time"
+                android:textColor="#424242"
+                android:maxLength="5"/>
+        </android.support.design.widget.TextInputLayout>
         <Button
             android:id="@+id/delete"
             android:layout_width="wrap_content"

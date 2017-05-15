@@ -11,6 +11,7 @@ public class Lapangan {
     public String name;
     public String price;
     public boolean status;
+    public String time;
 
     public Lapangan() {
     }

@@ -35,6 +35,8 @@ public class LapanganAdapter extends BaseQuickAdapter<Lapangan, BaseViewHolder> 
     protected void convert(final BaseViewHolder helper, final Lapangan item) {
         helper.setText(R.id.lapangan, item.name);
         helper.setText(R.id.price, item.price);
+        helper.setText(R.id.pick, item.time);
+        final EditText jam = helper.getView(R.id.pick);
 
         if (item.status) {
             helper.setVisible(R.id.available, true);
@@ -52,6 +54,11 @@ public class LapanganAdapter extends BaseQuickAdapter<Lapangan, BaseViewHolder> 
                             .child(Hawk.get(Constants.SESSION).toString())
                             .child(Constants.LAPANGAN + item.name).child("status")
                             .setValue(false);
+                    mFirebaseInstance
+                            .getReference(Constants.APPS)
+                            .child(Hawk.get(Constants.SESSION).toString())
+                            .child(Constants.LAPANGAN + item.name).child("time")
+                            .setValue(jam.getText().toString());
                 } else {
                     Toast.makeText(mContext, "Lapangan Sudah di Booking", Toast.LENGTH_SHORT).show();
                 }
@@ -59,7 +66,6 @@ public class LapanganAdapter extends BaseQuickAdapter<Lapangan, BaseViewHolder> 
             }
         });
 
-        final EditText jam = helper.getView(R.id.pick);
         jam.addTextChangedListener(new TextWatcher() {
             int len = 0;
 

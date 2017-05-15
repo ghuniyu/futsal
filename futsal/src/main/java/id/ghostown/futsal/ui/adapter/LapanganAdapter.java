@@ -33,6 +33,7 @@ public class LapanganAdapter extends BaseQuickAdapter<Lapangan, BaseViewHolder> 
     protected void convert(BaseViewHolder helper, final Lapangan item) {
         helper.setText(R.id.lapangan, item.name);
         helper.setText(R.id.price, item.price);
+        helper.setText(R.id.pick, item.time);
 
         if (item.status) {
             helper.setVisible(R.id.available, true);
