@@ -49,6 +49,5 @@ public class LapanganAdapter extends BaseQuickAdapter<Lapangan, BaseViewHolder> 
                 Toast.makeText(mContext, "Deleted", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }

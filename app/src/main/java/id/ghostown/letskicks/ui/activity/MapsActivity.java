@@ -12,7 +12,6 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -34,7 +33,7 @@ import id.ghostown.letskicks.R;
 import id.ghostown.letskicks.model.Futsal;
 import id.ghostown.letskicks.model.Info;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private LocationManager mLocationManager;
@@ -106,12 +105,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 latLngList.clear();
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Futsal futsal = data.getValue(Futsal.class);
+                    Log.e("X", data.getKey());
+                    latLngList.add(new Info(futsal.name, futsal.coordinate, data.getKey()));
                     Log.e("X", futsal.coordinate);
-                    latLngList.add(new Info(futsal.name, futsal.coordinate));
                 }
                 for (Info i : latLngList) {
-                    Marker marker = mMap.addMarker(new MarkerOptions().position(i.location).title(i.nama).snippet("Let's Kick"));
-                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(i.location, 14));
+                    Marker marker = mMap.addMarker(new MarkerOptions().position(i.location).title(i.nama + " Futsal").snippet(i.key));
                     marker.showInfoWindow();
                 }
                 progressDialog.dismiss();
@@ -127,7 +126,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public boolean onMarkerClick(Marker marker) {
                 startActivity(new Intent(MapsActivity.this, LapanganActivity.class)
-                        .putExtra(Constants.SESSION, marker.getTitle()));
+                        .putExtra(Constants.SESSION, marker.getSnippet()));
                 return false;
             }
         });

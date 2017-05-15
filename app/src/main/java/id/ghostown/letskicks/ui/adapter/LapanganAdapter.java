@@ -2,8 +2,11 @@ package id.ghostown.letskicks.ui.adapter;
 
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -29,7 +32,7 @@ public class LapanganAdapter extends BaseQuickAdapter<Lapangan, BaseViewHolder> 
     private FirebaseDatabase mFirebaseInstance;
 
     @Override
-    protected void convert(BaseViewHolder helper, final Lapangan item) {
+    protected void convert(final BaseViewHolder helper, final Lapangan item) {
         helper.setText(R.id.lapangan, item.name);
         helper.setText(R.id.price, item.price);
 
@@ -49,11 +52,37 @@ public class LapanganAdapter extends BaseQuickAdapter<Lapangan, BaseViewHolder> 
                             .child(Hawk.get(Constants.SESSION).toString())
                             .child(Constants.LAPANGAN + item.name).child("status")
                             .setValue(false);
-                }else {
+                } else {
                     Toast.makeText(mContext, "Lapangan Sudah di Booking", Toast.LENGTH_SHORT).show();
                 }
 
             }
+        });
+
+        final EditText jam = helper.getView(R.id.pick);
+        jam.addTextChangedListener(new TextWatcher() {
+            int len = 0;
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String str = jam.getText().toString();
+                if (str.length() == 2 && len < str.length()) {
+                    jam.append(":");
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+
+                String str = jam.getText().toString();
+                len = str.length();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+
         });
 
     }

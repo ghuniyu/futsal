@@ -33,7 +33,8 @@ public final class LoginActivity extends BaseActivity implements FirebaseAuth.Au
         if (currentUser != null) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            Hawk.put(Constants.USERS, currentUser.getDisplayName().replace("\\s++", ""));
+            Hawk.put(Constants.USERS, currentUser.getDisplayName());
+            Hawk.put(Constants.EMAIL, currentUser.getEmail());
 
             startActivity(intent);
         } else {

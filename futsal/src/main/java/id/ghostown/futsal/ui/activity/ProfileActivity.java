@@ -104,21 +104,21 @@ public class ProfileActivity extends AppCompatActivity {
         progressDialog.setMessage("Menghubungkan ke Server");
         progressDialog.show();
 
-        USER = nama.getText().toString();
+        USER = Hawk.get(Constants.USERS);
 
         mFirebaseInstance = FirebaseDatabase.getInstance();
         mFirebaseDatabase = mFirebaseInstance.getReference(Constants.APPS);
         mFirebaseDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if (!dataSnapshot.hasChild(USER)){
+                if (!dataSnapshot.hasChild(USER)) {
                     mFirebaseDatabase.child(USER).setValue(new Futsal(
                             nama.getText().toString(),
                             phone.getText().toString(),
-                            latlng.getText().toString())
+                            latlng.getText().toString().replace(",", ".").replace(". ", ","))
                     );
                     valueListener();
-                }else {
+                } else {
                     mFirebaseDatabase.child(USER).setValue(new Futsal(
                             nama.getText().toString(),
                             phone.getText().toString(),
@@ -135,7 +135,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    void valueListener(){
+    void valueListener() {
         mFirebaseDatabase.child(USER).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
